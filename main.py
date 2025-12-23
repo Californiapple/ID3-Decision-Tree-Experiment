@@ -32,7 +32,7 @@ def run_and_save_images():
             X, y, test_size=0.3, random_state=42, stratify=y
         )
 
-        # 2. 模型训练 (criterion='entropy' 模拟 ID3)
+        # 2. 模型训练
         clf = DecisionTreeClassifier(criterion='entropy', random_state=42)
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
@@ -80,7 +80,6 @@ def run_and_save_images():
     
     print("\n所有图片生成完毕！")
     print("-" * 30)
-    print("LaTeX 表格数据如下 (可直接复制到 LaTeX 表格中):")
     for res in results_list:
         print(f"{res['Dataset'].capitalize()} & {res['Accuracy']:.4f} & {res['Tree Depth']} \\\\ \\hline")
 
